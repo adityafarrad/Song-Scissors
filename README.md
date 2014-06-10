@@ -1,5 +1,7 @@
 #Song-Scissors
 
+_Song Scissors is an audio editting application intended for users who want to make custom ringtones/alarms, with the availability of viewing other users songs on a public domain._
+
 ##Overview
 
 ###Primary Functions:
