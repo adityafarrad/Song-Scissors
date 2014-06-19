@@ -1,0 +1,41 @@
+{
+  "name": "Song-Scissors",
+  "version": "0.0.0",
+  "description": "this is my description",
+  "main": "server.js",
+  "private": true,
+  "dependencies": {
+    "debug": "~1.0.1",
+    "express": "~4.4.2",
+    "connect-mongo": "~0.4.1",
+    "express-session": "~1.4.0",
+    "static-favicon": "~2.0.0-alpha",
+    "body-parser": "~1.3.1",
+    "cookie-parser": "~1.3.1",
+    "compression": "~1.0.7",
+    "csurf": "~1.2.2",
+    "morgan": "~1.1.1",
+    "validator": "~3.16.0",
+    "multer": "~0.1.0",
+    "multer-autoreap": "0.0.4",
+    "stringify-object": "~0.2.1",
+    "mandrill-api": "~1.0.39"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "mocha": "*"
+  },
+  "scripts": {
+    "test": "mocha",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/greenca6/Song-Scissors.git"
+  },
+  "author": "Craig A. Green",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/greenca6/Song-Scissors/issues"
+  }
+}
