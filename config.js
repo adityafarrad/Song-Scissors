@@ -23,6 +23,12 @@ var config = {
 		to_name:	'Joe User.',
 		from_addr:	'messaging@example.com',
 		from_sfx:	' via example.com'
+	},
+	sessionStore: {
+	    db: 'ss',
+	    auto_reconnect: true,
+	    username:  	(process.env.OPENSHIFT_MONGODB_DB_USERNAME) ? process.env.OPENSHIFT_MONGODB_DB_USERNAME : null,
+	    password:	(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) ? process.env.OPENSHIFT_MONGODB_DB_PASSWORD : null
 	}
 };
 

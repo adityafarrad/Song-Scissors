@@ -3,14 +3,14 @@
 var http = require('http');
 var path = require('path');
 
-global['__APP_ROOT_PATH']			= __dirname;
-global['__APP_MODELS_PATH']			= path.join(__dirname,'models');
-global['__APP_VIEWS_PATH'] 			= path.join(__dirname,'views');
+global['__APP_ROOT_PATH']		= __dirname;
+global['__APP_MODELS_PATH']		= path.join(__dirname,'models');
+global['__APP_VIEWS_PATH'] 		= path.join(__dirname,'views');
 global['__APP_CONTROLLERS_PATH']	= path.join(__dirname,'controllers');
 global['__APP_PUBLIC_PATH']      	= path.join(__dirname,'public');
 
 var app  	= require('./app');
-var server  = http.createServer(app);
+var server  	= http.createServer(app);
 
 server.on('error', function(e){
 	switch(e.code) {
