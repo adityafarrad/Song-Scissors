@@ -5,6 +5,9 @@
 var express = require('express');
 var fs = require('fs');
 var os = require('os');
+var path = require('path');
+var AppError = require('./lib/AppError.js');
+var errorHandler = require('./lib/errorHandler.js');
 var debug = require('debug')('SongScissors: ');
 var config = require('./config.js');
 var compress = require('compression');
@@ -17,6 +20,9 @@ var favIcon = require('static-favicon');
 var session = require('express-session');
 var bodyParser = require('body-parser');
 var MongoStore = require('connect-mongo')(session);
+var expressLayouts = require('express-ejs-layouts');
+
+
 
 /*
  * Initialize the app instance
@@ -40,8 +46,8 @@ if ('messaging' in config) {
 }
 
 app.set('views', __APP_VIEWS_PATH);
-//app.engine('phtml', handlebars...blah blah)
-//app.set('view engine', 'phtml');
+app.set('view engine', 'ejs');
+app.use(expressLayouts);
 
 app.use(morgan({format: config.logFormat}));
 
@@ -88,12 +94,12 @@ app.route('/ping').get(function(req, res) {
 var routes = [];
 
 try {
-	var dirList = fs.readdirSync(__APP_CONTROLERS_PATH);
+	var dirList = fs.readdirSync(__APP_CONTROLLERS_PATH);
 	dirList.forEach(function(controller) {
-		var dirStat = fs.statSync(path.join(__APP_CONTROLERS_PATH, controller));
+		var dirStat = fs.statSync(path.join(__APP_CONTROLLERS_PATH, controller));
 		if (dirStat.isDirectory()) {
 			routes.push(
-				require(path.join(__APP_CONTROLERS_PATH, controller))(app, controller)
+				require(path.join(__APP_CONTROLLERS_PATH, controller))(app, controller)
 			);
 		}
 	}) 
@@ -101,3 +107,10 @@ try {
 	console.error('Read error: ' + err);
 	process.exit();
 }
+
+app.use(function(req, res, next) {
+	next(new AppError('Resource not found! ' + req.path, 404));
+});
+
+errorHandler.title = 'Song Scissors';
+app.use(errorHandler);

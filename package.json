@@ -19,7 +19,9 @@
     "multer": "~0.1.0",
     "multer-autoreap": "0.0.4",
     "stringify-object": "~0.2.1",
-    "mandrill-api": "~1.0.39"
+    "mandrill-api": "~1.0.39",
+    "ejs": "~1.0.0",
+    "express-ejs-layouts": "~1.1.0"
   },
   "devDependencies": {
     "chai": "*",
