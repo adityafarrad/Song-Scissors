@@ -16,3 +16,5 @@ _Song Scissors is an audio editting application intended for users who want to m
 ###Additional Functions Include:
 * Option to save the current edit as a draft
 * Share one's songs via Social Outlet
+
+whatever.
